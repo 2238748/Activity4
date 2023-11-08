@@ -161,7 +161,7 @@ group by o.ofirstname;
 
 SELECT a.name AS animal_name, COUNT(*) AS appointment_count
 FROM animals AS a
-INNER JOIN appointments AS ap ON a.animal_id = ap.animal_id
+INNER JOIN appointments AS ap ON a.animalid = ap.animalid
 GROUP BY a.name
 ORDER BY appointment_count DESC
 LIMIT 1;
