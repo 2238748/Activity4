@@ -43,7 +43,7 @@ CREATE TABLE invoices (
     invoiceid SERIAL PRIMARY KEY,
     appointid INT,
     totalamount NUMERIC(10,2) NOT NULL,
-    paymentdate DATE
+    paymentdate TIME
 );
 
 CREATE TABLE medicalrecords (
