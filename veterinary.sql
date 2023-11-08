@@ -111,3 +111,6 @@ ADD COLUMN registereddate DATE;
 
 ALTER TABLE invoices
 RENAME COLUMN paymentdate TO paymenttime;
+
+DELETE FROM appointments
+WHERE animal_id = 8;
