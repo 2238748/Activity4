@@ -38,3 +38,10 @@ CREATE TABLE doctors(
 	phone VARCHAR(15) NOT NULL,
 	email VARCHAR(50) NOT NULL	
 );
+
+CREATE TABLE invoices (
+    invoiceid SERIAL PRIMARY KEY,
+    appointid INT,
+    totalamount NUMERIC(10,2) NOT NULL,
+    paymentdate DATE
+);
