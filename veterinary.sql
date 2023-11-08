@@ -25,10 +25,11 @@ CREATE TABLE animals (
 CREATE TABLE appointments(
     appointid INT PRIMARY KEY,
     animalid INT,
-    appointment DATE,
+    appointdate DATE,
     reason VARCHAR(255),
     FOREIGN KEY (animalid) REFERENCES animals(animalid)
 );
+
 
 CREATE TABLE doctors(
 	doctorid INT PRIMARY KEY, 
@@ -84,6 +85,19 @@ VALUES
 (9, 'Max', 'Dog', 'Dachshund', '2020-07-14', 'Male', 'Black and Tan', 9),
 (10,'Cleo', 'Cat', 'Ragdoll', '2019-12-22', 'Female', 'Seal Point', 10);
 
+INSERT INTO appointments (appointid, animalid, appointdate, reason)
+VALUES
+(1, 1, '2023-01-05', 'Annual check-up'),
+(2, 2, '2023-01-10', 'Vaccination'),
+(3, 3, '2023-02-02', 'Injury assessment'),
+(4, 4, '2023-02-15', 'Dental cleaning'),
+(5, 5, '2023-03-05', 'Skin condition'),
+(6, 6, '2023-03-10', 'Check for fleas'),
+(7, 2, '2023-04-12', 'Vaccination'),
+(8, 8, '2023-04-18', 'Spaying/neutering'),
+(9, 9, '2023-05-02', 'Allergy treatment'),
+(10,10, '2023-05-20', 'Eye infection');
+
 INSERT INTO doctors(doctorid, dfirstname, dlastname, specialty, phone, email)
 VALUES
 (1, 'Dr.Maria', 'Santos', 'General Veterinarian', '987-654-3210', 'maria@example.com'),
@@ -138,11 +152,12 @@ FROM animals;
 SELECT SUM(totalamount) AS total_sales
 FROM invoices;
 
-SELECT COUNT(*) AS total_appointments
+SELECT COUNT(a.animalid) AS total_appointments,o.ofirstname
 FROM appointments AS a
-INNER JOIN animals AS an ON a.animal_id = an.animal_id
-INNER JOIN owners AS o ON an.owner_id = o.owner_id
-WHERE o.ofirst_name = 'Maria';
+INNER JOIN animals AS an ON a.animalid = an.animalid
+INNER JOIN owners AS o ON an.ownerid = o.ownerid
+WHERE o.ofirstname = 'Maria'
+group by o.ofirstname;
 
 SELECT a.name AS animal_name, COUNT(*) AS appointment_count
 FROM animals AS a
