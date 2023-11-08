@@ -21,3 +21,11 @@ CREATE TABLE animals (
     ownerid INT NOT NULL, -- Define data type and NOT NULL constraint
     FOREIGN KEY (ownerid) REFERENCES owners(ownerid)
 );
+
+CREATE TABLE appointments(
+    appointid INT PRIMARY KEY,
+    animalid INT,
+    appointment DATE,
+    reason VARCHAR(255),
+    FOREIGN KEY (animalid) REFERENCES animals(animalid)
+);
