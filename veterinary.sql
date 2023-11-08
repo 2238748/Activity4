@@ -7,7 +7,7 @@ olastname VARCHAR(50) NOT NULL,
 address VARCHAR(100) NOT NULL,
 phone VARCHAR(15) NOT NULL,
 email VARCHAR(100) NOT NULL
-)
+);
 
 
 CREATE TABLE animals (
@@ -34,7 +34,7 @@ CREATE TABLE doctors(
 	doctorid INT PRIMARY KEY, 
 	dfirstname VARCHAR(50) NOT NULL,
 	dlastname VARCHAR(50) NOT NULL,
-	speciality VARCHAR(50) NOT NULL, 
+	specialty VARCHAR(50) NOT NULL, 
 	phone VARCHAR(15) NOT NULL,
 	email VARCHAR(50) NOT NULL	
 );
